@@ -1,0 +1,7 @@
+install python
+pip install selenium
+cd D:\Software Test\GitHub\Selenium\seleniumProject
+python -m e2e.tests.test_sauce_demo
+
+
+ython "D:\Software Test\GitHub\Selenium\seleniumProject\e2e\tests\test_sauce_demo.py"

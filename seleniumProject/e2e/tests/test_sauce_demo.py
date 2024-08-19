@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from e2e.features.sauceDemoFeature import SauceDemoFeature
-from code.utils.credentials import credentials
 
 class TestSauceDemoFeature(unittest.TestCase):
     def setUp(self):

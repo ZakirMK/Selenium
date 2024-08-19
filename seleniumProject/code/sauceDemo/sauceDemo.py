@@ -38,18 +38,15 @@ class SauceDemo:
         for index, inventory_item in enumerate(credentials["sauce_inventory_items"]):
             inventory_item_price = credentials["sauce_inventory_items_prices"][index]
 
-            # Find all item elements and price elements
             item_elements = self.wait.until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, selectors["inventory_item"])))
             price_elements = self.wait.until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, selectors["inventory_item_price"])))
 
-            # Access the specific item and price using the index
             item_element = item_elements[index]
             price_element = price_elements[index]
 
             item_text = item_element.text
             price_text = price_element.text
 
-            # Validate item and price text
             assert inventory_item in item_text, f"Expected item '{inventory_item}' not found in '{item_text}'."
             assert inventory_item_price in price_text, f"Expected price '{inventory_item_price}' not found in '{price_text}'."
 
@@ -72,27 +69,20 @@ class SauceDemo:
     def assert_item_is_added_to_cart(self, item_index):
         self.set_element_number(item_index)
 
-        # Wait and verify remove button is visible
         remove_cart_button = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, selectors["remove_cart_button"])))
         assert remove_cart_button.is_displayed()
 
-        # Wait and verify the shop card badge contains '1'
         shop_card_badge = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, selectors["shop_card_badge"])))
         assert '1' in shop_card_badge.text
 
-        # Click on the shopping cart
         shopping_card = self.driver.find_element(By.CSS_SELECTOR, selectors["shopping_card"])
         shopping_card.click()
         
-        # Wait and verify the inventory item name is visible and matches expected value
         item_name = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, selectors["inventory_name"])))
         assert credentials["sauce_inventory_items"][self.element_number] in item_name.text
 
-        # Wait and verify the inventory item price is visible and matches expected value
         item_price = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, selectors["inventory_item_price"])))
         assert credentials["sauce_inventory_items_prices"][self.element_number] in item_price.text
-        
-        
 
     def click_checkout(self):
         checkout_button = self.driver.find_element(By.CSS_SELECTOR, selectors["checkout_button"])

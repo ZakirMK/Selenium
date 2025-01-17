@@ -3,3 +3,6 @@ class Globals:
     VALID_USERNAME = "Admin"
     VALID_PASSWORD = "admin123"
     INVALID_PASSWORD = "wrongPassword"
+    MENU_ITEM_TEXT = ["Admin", "PIM", "Leave", "Time","Recruitment",
+                      "My Info", "Performance", "Dashboard", "Directory",
+                      "Maintenance", "Claim", "Buzz"]

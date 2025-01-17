@@ -4,5 +4,4 @@ class LoginLocators:
     USERNAME_INPUT = (By.NAME, 'username')
     PASSWORD_INPUT = (By.NAME, 'password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, '[class="oxd-button oxd-button--medium oxd-button--main orangehrm-login-button"]')
-    DASHBOARD = (By.CSS_SELECTOR, '[class="oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module"]')
     ALERT_CREDENTIAL = (By.CSS_SELECTOR, '[role="alert"]')
